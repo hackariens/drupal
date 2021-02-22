@@ -1,7 +1,9 @@
 {
   "name": "drupal/core-php-storage",
   "description": "PhpStorage.",
-  "keywords": ["drupal"],
+  "keywords": [
+    "drupal"
+  ],
   "homepage": "https://www.drupal.org/project/drupal",
   "license": "GPL-2.0-or-later",
   "require": {
