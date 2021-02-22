@@ -1,7 +1,9 @@
 {
   "name": "drupal/core-annotation",
   "description": "Annotation discovery and implementation of plugins.",
-  "keywords": ["drupal"],
+  "keywords": [
+    "drupal"
+  ],
   "homepage": "https://www.drupal.org/project/drupal",
   "license": "GPL-2.0-or-later",
   "require": {
