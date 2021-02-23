@@ -34,7 +34,7 @@
     "@babel/register": "7.12.1",
     "babel-plugin-add-header-comment": "1.0.3",
     "chalk": "4.1.0",
-    "chokidar": "3.4.3",
+    "chokidar": "3.5.1",
     "chromedriver": "87.0.5",
     "cross-env": "7.0.2",
     "cspell": "4.1.2",
