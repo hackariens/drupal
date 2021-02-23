@@ -1,26 +1,23 @@
 # Welcome to @koromerzhin/template-drupal 👋
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-
 ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)
-
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/koromerzhin/template-drupal/graphs/commit-activity)
-
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
 ![Continuous Integration](https://github.com/koromerzhin/template-drupal/workflows/Continuous%20Integration/badge.svg?branch=develop)
 
 > Template de site internet sous drupal
 
 ## 🏠 [Homepage](https://github.com/koromerzhin/template-drupal#readme)
 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#-contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ## Need
 
 Software:
 
 - make
+- npm
 - docker
 - repository koromerzhin/traefikproxy
 
@@ -31,12 +28,8 @@ docker swarm
 Hosts:
 
 - drupal.traefik.me
-
-## Récupérer les images docker
-
-``` sh
-make docker image-pull
-```
+- mailhog-drupal.traefik.me
+- phpmyadmin-drupal.traefik.me
 
 ## Install
 
@@ -74,10 +67,10 @@ make help
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-Feel free to check [issues page](https://github.com/koromerzhin/template-drupal/issues).
-You can also take a look at the [contributing guide](
-    https://github.com/koromerzhin/template-drupal/blob/develop/CONTRIBUTING.md
-    ).
+Feel free to check
+[issues page](https://github.com/koromerzhin/template-drupal/issues).
+You can also take a look at the
+[contributing guide](https://github.com/koromerzhin/template-drupal/blob/develop/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -87,13 +80,13 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Koromerzhin](https://github.com/koromerzhin).
 
-This project is [MIT](
-    https://github.com/koromerzhin/template-wordpress/blob/develop/LICENSE
-    ) licensed.
+This project is
+[MIT](https://github.com/koromerzhin/template-wordpress/blob/develop/LICENSE) licensed.
 
 ## ✨ Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -109,7 +102,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors)
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
 specification. Contributions of any kind welcome!
 
 ---
