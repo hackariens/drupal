@@ -1,7 +1,10 @@
 {
   "name": "drupal/core-dependency-injection",
   "description": "Dependency Injection container optimized for Drupal's needs.",
-  "keywords": ["drupal", "dependency injection"],
+  "keywords": [
+    "drupal",
+    "dependency injection"
+  ],
   "type": "library",
   "homepage": "https://www.drupal.org/project/drupal",
   "license": "GPL-2.0-or-later",
