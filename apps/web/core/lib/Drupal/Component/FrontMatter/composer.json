@@ -1,7 +1,9 @@
 {
   "name": "drupal/core-front-matter",
   "description": "Component for parsing front matter from a source.",
-  "keywords": ["drupal"],
+  "keywords": [
+    "drupal"
+  ],
   "homepage": "https://www.drupal.org/project/drupal",
   "license": "GPL-2.0-or-later",
   "require": {
