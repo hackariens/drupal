@@ -59,7 +59,7 @@
     "postcss-pxtorem": "5.1.1",
     "postcss-url": "10.1.1",
     "prettier": "2.1.2",
-    "stylelint": "13.7.2",
+    "stylelint": "13.11.0",
     "stylelint-checkstyle-formatter": "0.1.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-no-browser-hacks": "1.2.1",
