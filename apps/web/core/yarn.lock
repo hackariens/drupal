@@ -43,7 +43,7 @@
     semver "7.0.0"
     source-map "^0.5.0"
 
-"@babel/core@>=7.2.2", "@babel/core@>=7.9.0", "@babel/core@^7.8.4":
+"@babel/core@>=7.2.2", "@babel/core@>=7.9.0":
   version "7.12.3"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.3.tgz#1b436884e1e3bff6fb1328dc02b208759de92ad8"
   integrity sha512-0qXcZYKZp3/6N2jKYVxZv0aNCsxTSVCiK72DTiTYZAu7sjg73W0/aynWjMbiGd87EQL4WyA8reiJVh92AVla9g==
@@ -972,17 +972,6 @@
   version "7.13.0"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.13.0.tgz#865eb78a3ed94c6ad72d0e550180b3d6566dfb8d"
   integrity sha512-nswFANDBcO661RvGOHfVKVRBZIe9wJuFFIJYJWpO8LwYn8WI+h/2JZhceLvlxjxEvMH6/oGkEBgz5SnqUUMkCg==
-  dependencies:
-    find-cache-dir "^2.0.0"
-    lodash "^4.17.19"
-    make-dir "^2.1.0"
-    pirates "^4.0.0"
-    source-map-support "^0.5.16"
-
-"@babel/register@^7.8.3":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.12.1.tgz#cdb087bdfc4f7241c03231f22e15d211acf21438"
-  integrity sha512-XWcmseMIncOjoydKZnWvWi0/5CUCD+ZYKhRwgYlWOrA8fGZ/FjuLRpqtIhLOVD/fvR1b9DQHtZPn68VvhpYf+Q==
   dependencies:
     find-cache-dir "^2.0.0"
     lodash "^4.17.19"
@@ -5474,13 +5463,10 @@ postcss-gap-properties@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-postcss-header@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-header/-/postcss-header-2.0.0.tgz#e7dbc95abeaa2dfb46b3106c1541c4845d3382da"
-  integrity sha512-h/2vrxf9YoLXji6qnbO79OH+UyTEc8BtqpYOrJn4E/rmPlLlt9ciAbHvQDPuhbBUtaFClcXBMWVejbwdpHYUpA==
-  dependencies:
-    "@babel/core" "^7.8.4"
-    "@babel/register" "^7.8.3"
+postcss-header@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-header/-/postcss-header-3.0.1.tgz#2695d7956536590d61e4cca8b7943235005226b4"
+  integrity sha512-bPt7W9yVq7RY7hEs3r9Zy9Q3PhNRq0aLup5+K5Gwt01s7Oeqb0QV7BGtL6fJwTk132/zxzsVe9Gg6gwlXSLZ3A==
 
 postcss-html@^0.36.0:
   version "0.36.0"
