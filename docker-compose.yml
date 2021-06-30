@@ -30,7 +30,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.mailhog-drupal.rule=Host(`mailhog-drupal.traefik.me`)"
+        - "traefik.http.routers.mailhog-drupal.rule=HostRegexp(`mailhog-drupal.traefik.me`, `mailhog-drupal.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.mailhog-drupal-tls.tls.domains[0].main=mailhog-drupal.traefik.me"
         - "traefik.http.routers.mailhog-drupal-tls.tls.domains[0].sans=mailhog-drupal-*.traefik.me"
         - "traefik.http.services.mailhog-drupal.loadbalancer.server.port=8025"
@@ -63,7 +63,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.drupal.rule=Host(`drupal.traefik.me`)"
+        - "traefik.http.routers.drupal.rule=HostRegexp(`drupal.traefik.me`, `drupal.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.drupal-tls.tls.domains[0].main=drupal.traefik.me"
         - "traefik.http.routers.drupal-tls.tls.domains[0].sans=drupal-*.traefik.me"
         - "traefik.http.services.drupal.loadbalancer.server.port=80"
@@ -80,7 +80,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.phpmyadmin-drupal.rule=Host(`phpmyadmin-drupal.traefik.me`)"
+        - "traefik.http.routers.phpmyadmin-drupal.rule=HostRegexp(`phpmyadmin-drupal.traefik.me`, `phpmyadmin-drupal.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.phpmyadmin-drupal-tls.tls.domains[0].main=phpmyadmin-drupal.traefik.me"
         - "traefik.http.routers.phpmyadmin-drupal-tls.tls.domains[0].sans=phpmyadmin-drupal-*.traefik.me"
         - "traefik.http.services.phpmyadmin-drupal.loadbalancer.server.port=80"
