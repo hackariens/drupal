@@ -1,5 +1,6 @@
 apps/bin/*
 apps/private
+!apps/private/.gitkeep
 apps/vendor
 apps/web/.csslintrc
 apps/web/.editorconfig
@@ -25,6 +26,7 @@ apps/web/sites/*/files
 apps/web/sites/*/tmp
 apps/web/sites/*/translations
 !apps/web/sites/default/files/translations/.gitkeep
+!apps/web/sites/default/settings.php
 apps/web/sites/development.services.yml
 apps/web/sites/example.settings.local.php
 apps/web/sites/example.sites.php

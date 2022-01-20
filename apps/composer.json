@@ -8,19 +8,46 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
-    ],
+    },
     "require": {
         "composer/installers": "^1.9",
         "drupal-composer/drupal-l10n": "^2.0",
+        "drupal/admin_toolbar": "^3.0",
+        "drupal/allowed_formats": "^1.3",
+        "drupal/antibot": "^1.5",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
-        "drush/drush": "^11.0"
+        "drupal/editor_advanced_link": "^2.0",
+        "drupal/entity_browser": "^2.6",
+        "drupal/field_group": "^3.2",
+        "drupal/geolocation": "^3.7",
+        "drupal/image_widget_crop": "^2.3",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/link_attributes": "^1.11",
+        "drupal/linkit": "@beta",
+        "drupal/media_bulk_upload": "^1.0@alpha",
+        "drupal/module_filter": "^3.2",
+        "drupal/paragraphs": "^1.12",
+        "drupal/pathauto": "^1.8",
+        "drupal/quick_node_clone": "^1.14",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/redirect": "^1.7",
+        "drupal/schema_metatag": "^2.2",
+        "drupal/simple_sitemap": "^4.0",
+        "drupal/symfony_mailer": "^1.0@alpha",
+        "drupal/transliterate_filenames": "^1.6",
+        "drupal/webform": "^6.1",
+        "oomphinc/composer-installers-extender": "^2.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -43,6 +70,10 @@
                 "fr"
             ]
         },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -93,5 +124,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drush/drush": "^11.0"
     }
 }
