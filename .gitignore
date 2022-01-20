@@ -24,6 +24,7 @@ apps/web/sites/*/cache
 apps/web/sites/*/files
 apps/web/sites/*/tmp
 apps/web/sites/*/translations
+!apps/web/sites/default/files/translations/.gitkeep
 apps/web/sites/development.services.yml
 apps/web/sites/example.settings.local.php
 apps/web/sites/example.sites.php
