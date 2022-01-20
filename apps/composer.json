@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "drupal-composer/drupal-l10n": "^2.0",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
@@ -35,6 +36,12 @@
             "locations": {
                 "web-root": "web/"
             }
+        },
+        "drupal-l10n": {
+            "destination": "sites/default/translations",
+            "languages": [
+                "fr"
+            ]
         },
         "installer-paths": {
             "web/core": [
