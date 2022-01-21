@@ -1,6 +1,6 @@
 uuid: 7f2db7f2-2138-4257-be8d-18f84fe77782
 langcode: fr
-status: true
+status: false
 dependencies: {  }
 _core:
   default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI

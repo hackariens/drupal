@@ -2,10 +2,7 @@ uuid: 463c4991-319f-44a6-bbda-4a81ac611685
 langcode: fr
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
-    - filter
     - media
     - system
 _core:
@@ -16,5 +13,4 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'use text format restricted_html'
   - 'view media'

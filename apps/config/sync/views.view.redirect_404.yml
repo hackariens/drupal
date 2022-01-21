@@ -17,11 +17,11 @@ base_field: ''
 display:
   default:
     id: default
-    display_title: Master
+    display_title: Maître
     display_plugin: default
     position: 0
     display_options:
-      title: 'Fix 404 pages'
+      title: 'Réparer les pages 404'
       fields:
         path:
           id: path
@@ -184,7 +184,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: date
-          label: 'Last accessed'
+          label: 'Dernier accès'
           exclude: false
           alter:
             alter_text: false
@@ -371,7 +371,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'There are no 404 errors to fix.'
+          content: 'Il n''y a aucune erreur 404 à corriger.'
           tokenize: false
       sorts: {  }
       arguments: {  }
@@ -471,7 +471,7 @@ display:
           exposed: false
           expose:
             operator_id: ''
-            label: Resolved
+            label: Résolu
             description: ''
             use_operator: false
             operator: resolved_op
@@ -577,7 +577,7 @@ display:
     position: 1
     display_options:
       enabled: true
-      display_description: 'Lists 404 error paths with no redirect assigned yet.'
+      display_description: 'Liste les chemins d''erreur 404 sans aucune redirection assignée pour le moment.'
       display_extenders: {  }
       path: admin/config/search/redirect/404
     cache_metadata:

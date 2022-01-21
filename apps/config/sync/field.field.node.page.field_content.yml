@@ -1,0 +1,21 @@
+uuid: 0cc3770b-c42d-49c2-9cb6-fc866d797555
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.page
+id: node.page.field_content
+field_name: field_content
+entity_type: node
+bundle: page
+label: Contenu
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings: {  }
+field_type: entity_reference
