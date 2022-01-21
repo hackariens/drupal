@@ -649,6 +649,7 @@ $settings['file_private_path'] = '../private';
  * Load services definition file.
  */
 $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
 
 /**
  * Override the default service container class.
@@ -786,3 +787,14 @@ $databases['default']['default'] = array (
 $config['swiftmailer.transport']['transport'] = 'smtp';
 $config['swiftmailer.transport']['smtp_host'] = 'mailhog';
 $config['swiftmailer.transport']['smtp_port'] = '1025';
+
+$settings['config_exclude_modules'] = ['devel'];
+$config['system.file']['temporary_maximum_age'] = -1;
+$settings['skip_permissions_hardening'] = TRUE;
+$settings['extension_discovery_scan_tests'] = FALSE;
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+$config['system.logging']['error_level'] = 'verbose';
