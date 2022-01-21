@@ -136,7 +136,6 @@
         }
     },
     "require-dev": {
-        "drupal/devel": "^4.1",
         "drush/drush": "^11.0"
     }
 }
