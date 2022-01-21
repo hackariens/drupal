@@ -1,17 +1,18 @@
-uuid: 27b77453-1cdf-48d6-84d5-6dafc9e4db08
+uuid: 244cd139-2ce3-4c13-bfb8-9e67cd2d7dce
 langcode: fr
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - node
     - paragraphs
 id: node.field_content
 field_name: field_content
 entity_type: node
-type: entity_reference
+type: entity_reference_revisions
 settings:
   target_type: paragraph
-module: core
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

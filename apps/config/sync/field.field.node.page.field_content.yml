@@ -1,10 +1,14 @@
-uuid: 0cc3770b-c42d-49c2-9cb6-fc866d797555
+uuid: 59eaf74e-11df-4959-9cf1-cbd4c8b8664d
 langcode: fr
 status: true
 dependencies:
   config:
     - field.storage.node.field_content
     - node.type.page
+    - paragraphs.paragraphs_type.text
+    - paragraphs.paragraphs_type.text_image
+  module:
+    - entity_reference_revisions
 id: node.page.field_content
 field_name: field_content
 entity_type: node
@@ -17,5 +21,16 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
-  handler_settings: {  }
-field_type: entity_reference
+  handler_settings:
+    target_bundles:
+      text: text
+      text_image: text_image
+    negate: 0
+    target_bundles_drag_drop:
+      text:
+        weight: 3
+        enabled: true
+      text_image:
+        weight: 4
+        enabled: true
+field_type: entity_reference_revisions
