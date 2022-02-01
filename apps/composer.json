@@ -36,7 +36,7 @@
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/link_attributes": "^1.11",
         "drupal/linkit": "@beta",
-        "drupal/media_bulk_upload": "^1.0@alpha",
+        "drupal/media_bulk_upload": "1.0.0-alpha9",
         "drupal/module_filter": "^3.2",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
