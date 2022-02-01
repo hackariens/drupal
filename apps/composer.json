@@ -46,6 +46,7 @@
         "drupal/schema_metatag": "^2.2",
         "drupal/simple_sitemap": "^4.0",
         "drupal/symfony_mailer": "^1.0@alpha",
+        "drupal/telephone_validation": "^2.3",
         "drupal/transliterate_filenames": "^1.6",
         "drupal/webform": "^6.1",
         "npm-asset/dropzone": "^5.9",
