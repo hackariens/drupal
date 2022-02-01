@@ -41,7 +41,7 @@
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",
         "drupal/quick_node_clone": "^1.14",
-        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/rabbit_hole": "1.0.0-beta9",
         "drupal/redirect": "^1.7",
         "drupal/schema_metatag": "^2.2",
         "drupal/simple_sitemap": "^4.0",
