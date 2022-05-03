@@ -28,8 +28,14 @@ docker swarm
 Hosts:
 
 - drupal.traefik.me
-- mailhog-drupal.traefik.me
-- phpmyadmin-drupal.traefik.me
+
+## Download
+
+```sh
+git clone git@github.com:koromerzhin/template-drupal.git template-drupal
+cd template-drupal
+git submodule update --init
+```
 
 ## Install
 
