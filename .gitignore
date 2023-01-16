@@ -36,3 +36,4 @@ apps/web/themes/custom/**/assets/js
 apps/web/update.php
 apps/web/web.config
 node_modules
+.env
