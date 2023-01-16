@@ -1,0 +1,27 @@
+version: "3.4"
+
+networks:
+  proxylampy:
+    external: true
+  serverlampy:
+    external: true
+  net:
+    driver: overlay
+    attachable: true
+
+services:
+  apache:
+    networks:
+      - net
+      - proxylampy
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.drupal.rule=Host(`drupal.traefik.me`)"
+        - "traefik.http.routers.drupal-tls.tls.domains[0].main=drupal.traefik.me"
+        - "traefik.http.routers.drupal.tls=true"
+        - "traefik.http.services.drupal.loadbalancer.server.port=80"
+  phpfpm:
+    networks:
+      - net
+      - serverlampy
