@@ -1,14 +1,9 @@
 version: "3.4"
-
 networks:
   proxylampy:
     external: true
   serverlampy:
     external: true
-  net:
-    driver: overlay
-    attachable: true
-
 services:
   apache:
     networks:
