@@ -34,6 +34,10 @@ Hosts:
 git clone --recurse-submodules git@github.com:hackariens/drupal.git drupal
 ```
 
+## Environnment
+
+Edit .env with .env.example
+
 ## Install
 
 ```sh
