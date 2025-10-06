@@ -18,6 +18,8 @@ services:
     volumes:
       - ${PWD}/apps:/var/www/:rw
       - ${PWD}/conf/php.ini-development://usr/local/etc/php/conf.d/php.ini
+    environnement:
+      - APACHE_DOCUMENT_ROOT=/var/www/web
     networks:
       - net
       - serverlampy
