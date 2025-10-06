@@ -17,9 +17,8 @@ services:
       - redis
     volumes:
       - ${PWD}/apps:/var/www/:rw
+      - ${PWD}/conf/apache2:/etc/apache2/
       - ${PWD}/conf/php.ini-development://usr/local/etc/php/conf.d/php.ini
-    environnement:
-      - APACHE_DOCUMENT_ROOT=/var/www/web
     networks:
       - net
       - serverlampy
