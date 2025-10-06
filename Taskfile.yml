@@ -1,0 +1,251 @@
+version: 3
+
+# Taskfile principal - Tâches globales et inclusions
+# Charge automatiquement les variables depuis le fichier .env s'il existe
+dotenv: [ '.env' ]
+
+includes:
+  docker: ./taskfiles/docker/Taskfile.yml
+  utils: ./taskfiles/utils/Taskfile.yml
+  env: ./taskfiles/env/Taskfile.yml
+  nodejs: ./taskfiles/nodejs/Taskfile.yml
+  download: ./taskfiles/download/Taskfile.yml
+
+vars:
+  # Variables avec valeurs par défaut depuis .env ou valeurs de fallback
+  PROJECT_NAME: '{{.PROJECT_NAME | default "drupal"}}'
+  PROJECT_VERSION: '1.0.0'
+  ENVIRONMENT: '{{.ENVIRONMENT | default "development"}}'
+  SWARM_DEFAULT_ADDR_POOL: '{{.IPSWARM | default "10.20.0.0/16"}}'
+  SWARM_ADVERTISE_ADDR: '{{.ADVERTISEADDR | default "192.168.1.46"}}'
+  STACK_NAME: '{{.STACK | default "drupal"}}'
+  FOLDERSQL: '{{.FOLDERSQL | default "database_init"}}'
+  FILESQL: '{{.FILESQL | default "dump.sql"}}'
+  FOLDERLAMPY: '{{.FOLDERLAMPY | default "drupal"}}'
+  DOCKERCOMPOSEFILE: '{{.DOCKERCOMPOSEFILE | default "docker-compose.yml"}}'
+
+tasks:
+  default:
+    desc: "Affiche l'aide et les tâches disponibles"
+    silent: true
+    cmds:
+    - echo "🛠️  Collection de Taskfiles pour le développement"
+    - echo ""
+    - echo "Tâches globales disponibles :"
+    - task --list
+    - echo ""
+
+  info:
+    desc: "Affiche les informations du projet avec les variables d'environnement"
+    silent: true
+    cmds:
+    - |
+      echo "🛠️  {{.PROJECT_NAME}} v{{.PROJECT_VERSION}} - Collection de Taskfiles"
+      echo "Environnement: {{.ENVIRONMENT}}"
+
+  help:
+    desc: "Affiche l'aide détaillée"
+    aliases: [ h ]
+    cmds:
+    - task: default
+
+  drupal:copysql:
+    desc: "Copie le fichier SQL de dump dans le dossier drupal"
+    silent: true
+    cmds:
+    - task: utils:file:copy
+      vars:
+        SOURCE_FILE: ./{{.FOLDERSQL}}/{{.FILESQL}}
+        DEST_DIR: "{{.FOLDERLAMPY}}/mariadb_init/"
+        FORCE: "true"
+
+  drupal:getpull-image:
+    desc: "Télécharge les images Docker définies dans le docker-compose.yml"
+    silent: true
+    cmds:
+    - task: docker:images:pull
+      vars:
+        COMPOSE_FILE: "{{.DOCKERCOMPOSEFILE}}"
+
+  drupal:deploy:
+    desc: "Déploie les stacks Docker définies dans les fichiers docker-compose"
+    silent: true
+    cmds:
+    - task: docker:stack:deploy
+      vars:
+        COMPOSE_FILE: "{{.DOCKERCOMPOSEFILE}}"
+        STACK_NAME: "{{.STACK_NAME}}"
+
+  drupal:install-first:
+    desc: "Installation initiale de Composer et des dépendances"
+    silent: true
+    cmds:
+    - docker run --rm -v $(pwd)/apps:/var/www -w /var/www koromerzhin/php:8.4.3-apache composer install
+
+  drupal:waiting:
+    desc: "Attend que les services soient opérationnels"
+    silent: true
+    cmds:
+    - task: docker:stack:check:containers:ready
+      vars:
+        CONTAINERS: "phpfpm"
+        STACK_NAME: "{{.STACK_NAME}}"
+
+  drupal:ls:
+    desc: "Liste les stacks et services Docker"
+    silent: true
+    cmds:
+    - task: docker:stack:services
+      vars:
+        STACK_NAME: "{{.STACK_NAME}}"
+
+  drupal:exec:
+    desc: "Exécute une commande dans un conteneur en cours d'exécution"
+    cmds:
+    - task: drupal:copysql
+    - task: drupal:getpull-image
+    - task: drupal:deploy
+    - task: drupal:waiting
+    - task: drupal:ls
+
+  drupal:download-phar:
+    desc: "Télécharger les différents fichiers phar"
+    cmds:
+    - task: download:php:tools
+      vars:
+        TOOLS_DIR: ./../apps
+
+  drupal:bash:
+    desc: "Ouvre un shell bash dans le conteneur phpfpm"
+    cmds:
+    - task: docker:stack:shell
+      vars:
+        STACK_NAME: "drupal"
+        SERVICE_NAME: "phpfpm"
+
+  create:apps:
+    desc: "Créer l'install de drupal"
+    silent: true
+    cmds:
+    - mkdir -p ./install
+    - docker run --rm -v $(pwd)/install:/var/www -w /var/www koromerzhin/php:8.4.3-apache composer create-project drupal/recommended-project apps --no-interaction
+    - cp -r ./install/apps/ .
+
+  drupal:cmd-exec:
+    desc: "Affiche les informations Symfony"
+    silent: true
+    vars:
+      INTERACTIVE: '{{.INTERACTIVE | default "true"}}'
+    cmds:
+    - task: docker:stack:exec
+      vars:
+        STACK_NAME: "drupal"
+        SERVICE_NAME: "phpfpm"
+        COMMAND: "{{.COMMAND}}"
+        INTERACTIVE: "{{.INTERACTIVE}}"
+
+  composer:exec:
+    desc: "Exécute une commande Composer"
+    silent: true
+    vars:
+      CMD: '{{.CMD | default ""}}'
+    cmds:
+    - task: drupal:cmd-exec
+      vars:
+        COMMAND: "composer {{.CMD}}"
+
+  composer:fund:
+    desc: "Affiche les liens de financement des dépendances Composer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "fund"
+
+  composer:install:
+    desc: "Installe les dépendances Composer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "install"
+
+  composer:outdated:
+    desc: "Affiche les dépendances obsolètes"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "outdated"
+
+  composer:suggests:
+    desc: "Affiche les suggestions des dépendances Composer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "suggests"
+
+  composer:update:
+    desc: "Met à jour les dépendances Composer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "update"
+
+  composer:validate:
+    desc: "Valide le fichier composer.json"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "validate"
+
+  composer:install:dev:
+    desc: "Installe les dépendances Composer pour le développement"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "install --no-progress --prefer-dist --optimize-autoloader"
+
+  composer:install:prod:
+    desc: "Installe les dépendances Composer pour la production"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "install --no-progress --prefer-dist --optimize-autoloader --no-dev"
+
+  ecs-check:
+    desc: "Vérifie le code avec PHP CS Fixer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "run ecs-check"
+
+  ecs-fix:
+    desc: "Corrige le code avec PHP CS Fixer"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "run ecs-fix"
+
+  rector:
+    desc: "Refactorise le code avec Rector"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "run rector"
+
+  rector:dry:
+    desc: "Refactorise le code avec Rector en mode dry-run"
+    silent: true
+    cmds:
+    - task: composer:exec
+      vars:
+        CMD: "run rector --dry-run"
