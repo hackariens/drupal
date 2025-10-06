@@ -80,7 +80,7 @@ jobs:
       - name: Deploy containers
         run: |
           task drupal:getpull-image
-          task drupal:install-first
+          task create:apps
           task drupal:deploy
           task drupal:waiting
       # === LINTING PHASE ===

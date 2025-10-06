@@ -1,12 +1,10 @@
 {
   "name": "@hackariens/drupal",
   "version": "1.0.0",
-  "description": "Template de site internet sous wordpress",
+  "description": "Template de site internet sous drupal",
   "main": "index.js",
   "scripts": {
-    "lint:markdown": "markdownlint README.md",
-    "lint:styelint:fix": "stylelint assets/scss/*.scss --fix",
-    "lint:stylelint": "stylelint assets/scss/*.scss"
+    "lint:markdown": "markdownlint README.md"
   },
   "repository": {
     "type": "git",
