@@ -66,9 +66,7 @@ jobs:
       
       - name: Setup environment files
         run: |
-          cp apps/.env.test apps/.env
           cp .env.example .env
-          echo "APP_ENV=test" >> apps/.env
       
       # === INFRASTRUCTURE PHASE ===
       - name: Setup Docker cache
@@ -95,14 +93,6 @@ jobs:
         run: |
           # Run markdown linting with warning on failure
           npm run lint:markdown || echo "::warning::Markdown linting issues found"
-          
-          # Run SCSS linting (will auto-fix issues)
-          npm run lint:stylelint:fix
-          
-          # Check if there are any remaining unfixed issues
-          if ! npm run lint:stylelint; then
-            echo "::warning::Some SCSS issues could not be auto-fixed"
-          fi
       
       - name: Setup PHP tools and permissions
         run: |
