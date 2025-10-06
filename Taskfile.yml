@@ -49,6 +49,19 @@ tasks:
     cmds:
     - task: default
 
+  drupal:getapacheconf:
+    desc: "Récupère la configuration Apache depuis l'image Docker"
+    silent: false
+    cmds:
+    - rm -rf ./conf/apache2 || true
+    - docker create --name drupal-php koromerzhin/php:8.4.3-apache-symfony 
+    - docker cp drupal-php:/etc/apache2/ ./conf/apache2
+    - docker rm -f drupal-php
+
+    - sed -ri -e "s!/var/www/html!${APACHE_DOCUMENT_ROOT}!g" ./conf/apache2/sites-available/*.conf 
+    - sed -ri -e "s!/var/www/!${APACHE_DOCUMENT_ROOT}!g" ./conf/apache2/apache2.conf 
+    - sed -ri -e "s!/var/www/!${APACHE_DOCUMENT_ROOT}!g" ./conf/apache2/conf-available/*
+
   drupal:copysql:
     desc: "Copie le fichier SQL de dump dans le dossier drupal"
     silent: true
@@ -103,6 +116,7 @@ tasks:
     desc: "Exécute une commande dans un conteneur en cours d'exécution"
     cmds:
     - task: drupal:copysql
+    - task: drupal:getapacheconf
     - task: drupal:getpull-image
     - task: drupal:deploy
     - task: drupal:waiting
