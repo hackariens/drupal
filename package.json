@@ -1,6 +1,6 @@
 {
   "name": "@hackariens/drupal",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Template de site internet sous drupal",
   "main": "index.js",
   "scripts": {
