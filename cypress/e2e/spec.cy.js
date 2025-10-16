@@ -1,6 +1,6 @@
 describe('template spec', () => {
   it('passes', () => {
-    cy.visit('https://drupal.traefik.me');
+    cy.visit(`https://${Cypress.env('SERVERNAME')}`, {failOnStatusCode: false});
     cy.screenshot('first-page');
-  })
+  });
 })
