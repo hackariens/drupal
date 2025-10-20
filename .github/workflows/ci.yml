@@ -127,7 +127,7 @@ jobs:
       - name: Setup PHP tools and permissions
         run: |
           task drupal:ls
-          sudo chown -R $USER:$USER ./apps
+          sudo chown -R "$USER":"$USER" ./apps
           sudo chmod -R 755 ./apps
       
       - name: Run Cypress tests
